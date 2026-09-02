@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>인명용 한자</title>
+<style>
+ body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+      background:#f5f7f9;font:16px/1.7 "맑은 고딕","Malgun Gothic",sans-serif;color:#1a1a1a}
+ .c{text-align:center;padding:24px}
+ h1{font-size:19px;color:#1b3a63;margin:0 0 6px}
+ p{color:#5c6672;font-size:14px;margin:0 0 18px}
+ a{display:block;min-height:48px;line-height:48px;margin:8px auto;max-width:280px;
+   border:1px solid #1b3a63;border-radius:8px;text-decoration:none;color:#1b3a63;font-size:15px}
+ a.pri{background:#1b3a63;color:#fff}
+</style>
+</head>
+<body>
+<div class="c">
+  <h1>인명용 한자</h1>
+  <p>화면을 선택해 주세요.</p>
+  <a class="pri" id="a1" href="minwon.html">민원인용 &mdash; 한자 고르기</a>
+  <a id="a2" href="staff.html">담당자용 &mdash; 전체 조회</a>
+</div>
+<script>
+// 기기를 보고 알맞은 화면으로 보내되, 강제하지 않는다.
+// 담당자가 휴대전화로 볼 수도 있고 민원인이 PC 를 쓸 수도 있다.
+// 각 화면 상단에 서로 전환하는 링크가 있다.
+try{
+  var touch = window.matchMedia('(pointer: coarse)').matches;
+  var narrow = window.innerWidth < 900;
+  var target = (touch && narrow) ? 'minwon.html' : 'staff.html';
+  if (!location.hash) location.replace(target);
+}catch(e){}
+</script>
+</body>
+</html>
