@@ -20,17 +20,17 @@
 <div class="c">
   <h1>인명용 한자</h1>
   <p>화면을 선택해 주세요.</p>
-  <a class="pri" id="a1" href="minwon.html">민원인용 &mdash; 한자 고르기</a>
-  <a id="a2" href="staff.html">담당자용 &mdash; 전체 조회</a>
+  <a class="pri" id="a1" href="simple.html">간편 조회 &mdash; 한자 고르기 (모바일)</a>
+  <a id="a2" href="full.html">전체 조회 &mdash; 뜻·이체자까지 (PC)</a>
 </div>
 <script>
 // 기기를 보고 알맞은 화면으로 보내되, 강제하지 않는다.
-// 담당자가 휴대전화로 볼 수도 있고 민원인이 PC 를 쓸 수도 있다.
+// 휴대전화로 전체 조회를 볼 수도 있고 PC 로 간편 조회를 쓸 수도 있다.
 // 각 화면 상단에 서로 전환하는 링크가 있다.
 try{
   var touch = window.matchMedia('(pointer: coarse)').matches;
   var narrow = window.innerWidth < 900;
-  var target = (touch && narrow) ? 'minwon.html' : 'staff.html';
+  var target = (touch && narrow) ? 'simple.html' : 'full.html';
   if (!location.hash) location.replace(target);
 }catch(e){}
 </script>
